@@ -2,27 +2,30 @@
 FileManager:true
 
 */
-describe("Player", function() {
+describe("FileManager", function() {
 
   it('shoud run', function () {
-    expect(writeAndRead).toBeTruthy();
+    expect(window.fileManager).toBeTruthy();
   })
   
-  runs(function() {
-      flag = false;
-      value = 0;
+  it('saves and reads', function(){
 
-      setTimeout(function() {
-        flag = true;
-      }, 500);
+    runs(function() {
+      result = '';
+      writeFile(function(){
+        readFile(function(res) {
+          result = res;
+        });
+      })
     });
     
     waitsFor(function() {
-      value++;
-      return flag;
+      return result;
     }, "The Value should be incremented", 750);
     
     runs(function() {
-      expect(value).toBeGreaterThan(0);
+      expect(result).toBe('Lorem Ipsum');
     });
+
+  })
 });
