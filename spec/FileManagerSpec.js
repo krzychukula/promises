@@ -1,11 +1,10 @@
-describe("Player", function() {
-  var fileManager;
+/*global describe:true beforeEach:true it:true expect:true
+FileManager:true
 
-  beforeEach(function() {
-    fileManager = new FileManager();
-  });
+*/
+describe("Player", function() {
 
   it('shoud run', function () {
-    expect(fileManager).toBeTruthy();
+    expect(onInitFs).toBeTruthy();
   })
 });
